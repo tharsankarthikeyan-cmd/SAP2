@@ -187,17 +187,17 @@
     <comp lib="13" loc="(2430,130)" name="register_8"/>
     <comp lib="13" loc="(2430,2010)" name="register_8"/>
     <comp lib="13" loc="(2430,2500)" name="register_8"/>
-    <comp lib="9" loc="(2316,1112)" name="Text">
+    <comp lib="9" loc="(2315,110)" name="Text">
+      <a name="text" val="Accumulator Register"/>
+    </comp>
+    <comp lib="9" loc="(2315,1110)" name="Text">
       <a name="text" val="Temporary Register"/>
     </comp>
-    <comp lib="9" loc="(2316,1988)" name="Text">
+    <comp lib="9" loc="(2315,1985)" name="Text">
       <a name="text" val="Register B"/>
     </comp>
-    <comp lib="9" loc="(2316,2478)" name="Text">
+    <comp lib="9" loc="(2315,2475)" name="Text">
       <a name="text" val="Register C"/>
-    </comp>
-    <comp lib="9" loc="(2319,113)" name="Text">
-      <a name="text" val="Accumulator Register"/>
     </comp>
     <wire from="(1630,150)" to="(1630,3040)"/>
     <wire from="(1660,150)" to="(1660,3040)"/>
