@@ -105,10 +105,6 @@
       <a name="incoming" val="8"/>
       <a name="spacing" val="2"/>
     </comp>
-    <comp lib="0" loc="(1920,610)" name="Ground">
-      <a name="facing" val="west"/>
-      <a name="width" val="8"/>
-    </comp>
     <comp lib="0" loc="(1970,860)" name="Ground">
       <a name="facing" val="west"/>
     </comp>
@@ -140,6 +136,7 @@
     <comp lib="0" loc="(2180,710)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
+      <a name="label" val="OP"/>
       <a name="width" val="3"/>
     </comp>
     <comp lib="0" loc="(480,200)" name="Pin">
@@ -185,6 +182,11 @@
     </comp>
     <comp lib="0" loc="(870,1190)" name="Power">
       <a name="facing" val="south"/>
+    </comp>
+    <comp lib="0" loc="(980,270)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="south"/>
+      <a name="label" val="ID"/>
     </comp>
     <comp lib="1" loc="(1010,570)" name="AND Gate">
       <a name="width" val="8"/>
@@ -254,7 +256,6 @@
     <wire from="(1830,680)" to="(2020,680)"/>
     <wire from="(1860,310)" to="(1860,620)"/>
     <wire from="(1860,620)" to="(2020,620)"/>
-    <wire from="(1920,610)" to="(2020,610)"/>
     <wire from="(1970,860)" to="(2020,860)"/>
     <wire from="(1970,880)" to="(2020,880)"/>
     <wire from="(1970,890)" to="(2020,890)"/>
@@ -309,9 +310,15 @@
     <wire from="(860,1100)" to="(860,1170)"/>
     <wire from="(860,1100)" to="(890,1100)"/>
     <wire from="(930,1090)" to="(1830,1090)"/>
+    <wire from="(930,280)" to="(930,390)"/>
+    <wire from="(930,280)" to="(980,280)"/>
+    <wire from="(930,390)" to="(980,390)"/>
     <wire from="(930,960)" to="(1820,960)"/>
+    <wire from="(980,270)" to="(980,280)"/>
+    <wire from="(980,280)" to="(980,290)"/>
     <wire from="(980,330)" to="(980,360)"/>
     <wire from="(980,360)" to="(1760,360)"/>
+    <wire from="(980,390)" to="(980,420)"/>
     <wire from="(980,460)" to="(980,480)"/>
     <wire from="(980,480)" to="(1040,480)"/>
     <wire from="(980,480)" to="(980,500)"/>
