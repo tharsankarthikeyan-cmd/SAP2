@@ -34,6 +34,7 @@
   <lib desc="file#register_16bits.circ" name="15"/>
   <lib desc="file#register_8bits.circ" name="16"/>
   <lib desc="file#register_z.circ" name="17"/>
+  <lib desc="file#flags_register.circ" name="18"/>
   <main name="main"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
@@ -416,6 +417,12 @@
       <a name="fanout" val="8"/>
       <a name="incoming" val="8"/>
     </comp>
+    <comp lib="0" loc="(3150,810)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+    </comp>
+    <comp lib="0" loc="(3150,830)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+    </comp>
     <comp lib="1" loc="(3010,860)" name="NOR Gate">
       <a name="inputs" val="8"/>
     </comp>
@@ -428,6 +435,7 @@
     <comp lib="16" loc="(2430,2010)" name="register_8"/>
     <comp lib="16" loc="(2430,2500)" name="register_8"/>
     <comp lib="17" loc="(1470,2150)" name="register_z16bits"/>
+    <comp lib="18" loc="(3370,750)" name="flags"/>
     <comp lib="2" loc="(1490,1800)" name="Demultiplexer">
       <a name="tristate" val="true"/>
       <a name="width" val="8"/>
@@ -848,8 +856,8 @@
     <wire from="(2530,770)" to="(2530,1210)"/>
     <wire from="(2530,770)" to="(2610,770)"/>
     <wire from="(2610,210)" to="(2610,750)"/>
-    <wire from="(2830,750)" to="(2860,750)"/>
-    <wire from="(2830,770)" to="(2860,770)"/>
+    <wire from="(2830,750)" to="(3150,750)"/>
+    <wire from="(2830,770)" to="(3150,770)"/>
     <wire from="(2830,790)" to="(2860,790)"/>
     <wire from="(2860,790)" to="(2860,860)"/>
     <wire from="(2860,860)" to="(2860,930)"/>
@@ -869,7 +877,9 @@
     <wire from="(2930,880)" to="(2950,880)"/>
     <wire from="(2940,860)" to="(2940,870)"/>
     <wire from="(2940,870)" to="(2950,870)"/>
-    <wire from="(3010,860)" to="(3090,860)"/>
+    <wire from="(3010,860)" to="(3030,860)"/>
+    <wire from="(3030,790)" to="(3030,860)"/>
+    <wire from="(3030,790)" to="(3150,790)"/>
     <wire from="(980,1250)" to="(1410,1250)"/>
     <wire from="(980,750)" to="(1130,750)"/>
     <wire from="(980,750)" to="(980,1250)"/>
