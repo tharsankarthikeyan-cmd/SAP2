@@ -34,12 +34,12 @@
   <lib desc="#BFH-Praktika" name="10"/>
   <lib desc="#Input/Output-Extra" name="11"/>
   <lib desc="#Soc" name="12"/>
-  <lib desc="file#register_16bits.circ" name="13"/>
+  <lib desc="file#program_counter.circ" name="13"/>
   <lib desc="file#flags_register.circ" name="14"/>
-  <lib desc="file#register_z.circ" name="15"/>
-  <lib desc="file#register_8bits.circ" name="16"/>
-  <lib desc="file#program_counter.circ" name="17"/>
-  <lib desc="file#alu.circ" name="18"/>
+  <lib desc="file#register_16bits.circ" name="15"/>
+  <lib desc="file#alu.circ" name="16"/>
+  <lib desc="file#register_8bits.circ" name="17"/>
+  <lib desc="file#register_z.circ" name="18"/>
   <main name="main"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
@@ -78,6 +78,9 @@
     <a name="circuit" val="main"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(1000,400)" name="Clock">
+      <a name="appearance" val="NewPins"/>
+    </comp>
     <comp lib="0" loc="(1020,400)" name="Tunnel">
       <a name="label" val="CLK"/>
     </comp>
@@ -465,23 +468,20 @@
       <a name="facing" val="east"/>
       <a name="label" val="CLK"/>
     </comp>
-    <comp lib="0" loc="(880,400)" name="Clock">
-      <a name="appearance" val="NewPins"/>
-    </comp>
     <comp lib="1" loc="(3010,860)" name="NOR Gate">
       <a name="inputs" val="8"/>
     </comp>
-    <comp lib="13" loc="(1370,590)" name="register_16"/>
+    <comp lib="13" loc="(1380,340)" name="pc"/>
     <comp lib="14" loc="(3370,750)" name="flags"/>
-    <comp lib="15" loc="(1470,2150)" name="register_z16bits"/>
-    <comp lib="16" loc="(1390,1720)" name="register_8"/>
-    <comp lib="16" loc="(2430,1130)" name="register_8"/>
-    <comp lib="16" loc="(2430,130)" name="register_8"/>
-    <comp lib="16" loc="(2430,2010)" name="register_8"/>
-    <comp lib="16" loc="(2430,2500)" name="register_8"/>
-    <comp lib="16" loc="(2430,3040)" name="register_8"/>
-    <comp lib="17" loc="(1380,340)" name="pc"/>
-    <comp lib="18" loc="(2830,750)" name="arithmetic_logic_unit"/>
+    <comp lib="15" loc="(1370,590)" name="register_16"/>
+    <comp lib="16" loc="(2830,750)" name="arithmetic_logic_unit"/>
+    <comp lib="17" loc="(1390,1720)" name="register_8"/>
+    <comp lib="17" loc="(2430,1130)" name="register_8"/>
+    <comp lib="17" loc="(2430,130)" name="register_8"/>
+    <comp lib="17" loc="(2430,2010)" name="register_8"/>
+    <comp lib="17" loc="(2430,2500)" name="register_8"/>
+    <comp lib="17" loc="(2430,3040)" name="register_8"/>
+    <comp lib="18" loc="(1470,2150)" name="register_z16bits"/>
     <comp lib="2" loc="(1490,1800)" name="Demultiplexer">
       <a name="tristate" val="true"/>
       <a name="width" val="8"/>
@@ -515,6 +515,7 @@
     <comp lib="9" loc="(2315,3015)" name="Text">
       <a name="text" val="Instruction Register"/>
     </comp>
+    <wire from="(1000,400)" to="(1020,400)"/>
     <wire from="(1060,2310)" to="(1060,2860)"/>
     <wire from="(1060,2310)" to="(1230,2310)"/>
     <wire from="(1060,2860)" to="(1550,2860)"/>
@@ -970,7 +971,9 @@
     <wire from="(3010,860)" to="(3030,860)"/>
     <wire from="(3030,790)" to="(3030,860)"/>
     <wire from="(3030,790)" to="(3150,790)"/>
-    <wire from="(880,400)" to="(1020,400)"/>
+    <wire from="(3370,750)" to="(3400,750)"/>
+    <wire from="(3370,770)" to="(3400,770)"/>
+    <wire from="(3370,790)" to="(3400,790)"/>
     <wire from="(980,1250)" to="(1410,1250)"/>
     <wire from="(980,750)" to="(1130,750)"/>
     <wire from="(980,750)" to="(980,1250)"/>
