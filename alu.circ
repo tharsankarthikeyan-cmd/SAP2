@@ -14,6 +14,9 @@
     <tool name="Power">
       <a name="facing" val="south"/>
     </tool>
+    <tool name="Ground">
+      <a name="facing" val="west"/>
+    </tool>
   </lib>
   <lib desc="#Gates" name="1"/>
   <lib desc="#Plexers" name="2"/>
@@ -98,6 +101,66 @@
       <a name="fanout" val="8"/>
       <a name="incoming" val="8"/>
       <a name="spacing" val="2"/>
+    </comp>
+    <comp lib="0" loc="(1910,400)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1910,410)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1910,430)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1910,440)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1910,450)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1910,460)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1910,470)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1910,480)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1910,500)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1910,510)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1910,520)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1910,530)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1910,540)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1910,550)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1910,560)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1930,860)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1930,880)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1930,890)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1930,900)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1930,910)" name="Ground">
+      <a name="facing" val="west"/>
     </comp>
     <comp lib="0" loc="(1990,690)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -336,15 +399,30 @@
     <wire from="(1870,420)" to="(1950,420)"/>
     <wire from="(1870,490)" to="(1870,1630)"/>
     <wire from="(1870,490)" to="(1950,490)"/>
+    <wire from="(1910,400)" to="(1950,400)"/>
+    <wire from="(1910,410)" to="(1950,410)"/>
+    <wire from="(1910,430)" to="(1950,430)"/>
+    <wire from="(1910,440)" to="(1950,440)"/>
+    <wire from="(1910,450)" to="(1950,450)"/>
+    <wire from="(1910,460)" to="(1950,460)"/>
+    <wire from="(1910,470)" to="(1950,470)"/>
+    <wire from="(1910,480)" to="(1950,480)"/>
+    <wire from="(1910,500)" to="(1950,500)"/>
+    <wire from="(1910,510)" to="(1950,510)"/>
+    <wire from="(1910,520)" to="(1950,520)"/>
+    <wire from="(1910,530)" to="(1950,530)"/>
+    <wire from="(1910,540)" to="(1950,540)"/>
+    <wire from="(1910,550)" to="(1950,550)"/>
+    <wire from="(1910,560)" to="(1950,560)"/>
+    <wire from="(1930,860)" to="(2020,860)"/>
+    <wire from="(1930,880)" to="(2020,880)"/>
+    <wire from="(1930,890)" to="(2020,890)"/>
+    <wire from="(1930,900)" to="(2020,900)"/>
+    <wire from="(1930,910)" to="(2020,910)"/>
     <wire from="(1970,560)" to="(1970,570)"/>
     <wire from="(1970,570)" to="(2150,570)"/>
     <wire from="(1970,770)" to="(1970,780)"/>
     <wire from="(1970,780)" to="(2040,780)"/>
-    <wire from="(1970,860)" to="(2020,860)"/>
-    <wire from="(1970,880)" to="(2020,880)"/>
-    <wire from="(1970,890)" to="(2020,890)"/>
-    <wire from="(1970,900)" to="(2020,900)"/>
-    <wire from="(1970,910)" to="(2020,910)"/>
     <wire from="(1990,480)" to="(2020,480)"/>
     <wire from="(1990,920)" to="(1990,1040)"/>
     <wire from="(1990,920)" to="(2020,920)"/>

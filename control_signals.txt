@@ -1,0 +1,50 @@
+Control Signals of Program Counter (3)
+EN_PC
+LOAD_PC
+COUNT_PC
+
+Control Signal of MAR (2)
+LOAD_MAR
+EN_MAR
+
+Control Signals of RAM (2)
+LOAD_RAM
+EN_RAM
+
+Controls Signals of MDR (3)
+LOAD_MDR
+EN_MDR
+EN_MDRH
+
+Controls Signals of Z Register (3)
+LOAD1_Z
+LOAD2_Z
+EN_Z
+
+Control Signals of L Register (2)
+LOAD_L
+EN_L
+
+Control Signals of Accumulator (2)
+LOAD_A
+EN_A
+
+Control Signals of Temp (2)
+LOAD_TEMP
+EN_TEMP
+
+Control Signals of ALU (5)
+OPCODE(For Operation Select)
+LOAD_FLAGS
+
+Control Signals of B (2)
+LOAD_B
+EN_B
+
+Control Signals of C (2)
+LOAD_C
+EN_C
+
+Control Signals of Instruction Register (2)
+LOAD_INS
+EN_INS
