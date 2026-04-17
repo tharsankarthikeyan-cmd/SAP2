@@ -109,4 +109,43 @@ Instruction 12: RET --> Return to the main routine
 
 RESTRICTIONS: A Maximum of one subroutine can be created so nesting of subroutines is not possible.
 
+Instruction 13: ANA REG(B/C) --> And the Accumulator with REG(B/C)
+1. Move the Data in REG(B/C) into tmp register (EN_B/C,LOAD_TEMP)
+2. Choose the opcode for the instruction and store in the output in the accumulator (OPCODE(0011),LOAD_ACC)
+------------------------------ END OF ANA ROUTINE ---------------------------------
+
+Instruction 14: ORA REG(B/C) --> OR the Accumulator with REG(B/C)
+1. Move the Data in REG(B/C) into tmp register (EN_B/C,LOAD_TEMP)
+2. Choose the opcode for the instruction and store in the output in the accumulator (OPCODE(0100),LOAD_ACC)
+------------------------------ END OF ORA ROUTINE ---------------------------------
+
+
+Instruction 15: XRA REG(B/C) --> XOR the Accumulator with REG(B/C)
+1. Move the Data in REG(B/C) into tmp register (EN_B/C,LOAD_TEMP)
+2. Choose the opcode for the instruction and store in the output in the accumulator (OPCODE(0101),LOAD_ACC)
+------------------------------ END OF XRA ROUTINE ---------------------------------
+
+Instruction 16: RAL REG(A/B/C) --> RAL the REG(B/C)
+1. Move the Data in REG(B/C) into tmp register (EN_B/C,LOAD_TEMP)
+2. Choose the opcode for the instruction and store in the output in the accumulator (OPCODE(0110),LOAD_B/C)
+------------------------------ END OF RAL ROUTINE ---------------------------------
+
+Instruction 17: RAR REG(A/B/C) --> RAR the REG(B/C)
+1. Move the Data in REG(B/C) into tmp register (EN_B/C,LOAD_TEMP)
+2. Choose the opcode for the instruction and store in the output in the accumulator (OPCODE(0111),LOAD_B/C)
+------------------------------ END OF RAR ROUTINE ---------------------------------
+
+Instruction 18: CMA --> ~ACC
+1. Choose the opcode for the instruction and store in the output in the accumulator (OPCODE(1010),LOAD_ACC)
+------------------------------ END OF CMA ROUTINE ---------------------------------
+
+Instruction 19: INR REG(A/B/C) --> Increment REG(B/C)
+1. Move the Data in REG(B/C) into tmp register (EN_ACC/B/C,LOAD_TEMP)
+2. Choose the opcode for the instruction and store in the output in the accumulator (OPCODE(1000),LOAD_ACC/B/C)
+------------------------------ END OF INR ROUTINE ---------------------------------
+
+Instruction 20: DCR REG(B/C) --> Decrement REG(B/C)
+1. Move the Data in REG(B/C) into tmp register (EN_B/C,LOAD_TEMP)
+2. Choose the opcode for the instruction and store in the output in the accumulator (OPCODE(1001),LOAD_B/C)
+------------------------------ END OF DCR ROUTINE ---------------------------------
 
