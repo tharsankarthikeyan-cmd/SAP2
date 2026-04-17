@@ -1,0 +1,112 @@
+How many T states are required for the Fetch Cycle
+1. Move Addr from PC to MAR --> T1 (EN_PC,LOAD_MAR)
+2. Select Addr from RAM and Move it to MDR and Count --> T2 (EN_MAR,EN_RAM,LOAD_MDR,COUNT_PC)
+3. Move Data from MDR to Instruction Register ---> T3 (EN_MDR,LOAD_INS)
+------------------------- END OF FETCH CYCLE ---------------------------------
+
+Instruction 1: LDA ADDR --> LOAD THE ACCUMULATOR with Data at ADDR
+1. Move Addr from PC to MAR --> T4 (EN_PC,LOAD_MAR)
+2. Select Addr from RAM and Move it to MDR and Count --> T5(EN_MAR,EN_RAM,LOAD_MDR,COUNT_PC)
+3. Move Data from MDR to Z Register High Byte --> T6(EN_MDR,EN_MDRH,LOAD2_Z)
+4. Move Addr from PC to MAR --> T7 (EN_PC,LOAD_MAR)
+5. Select Addr from RAM and Move it to MDR and Count --> T8(EN_MAR,EN_RAM,LOAD_MDR,COUNT_PC)
+6. Move Data from MDR to Z Register Low Byte --> T9(EN_MDR,LOAD1_Z)
+7. Move Data from Z Register to MAR --> T10(EN1_Z,EN2_Z,LOAD_MAR)
+8. Get the Data from the RAM to Put into MDR --> T11(EN_MAR,EN_RAM,LOAD_MDR)
+9. Finally Move Data to Accumulator --> T12(EN_MDR,LOAD_ACC)
+------------------------------- END OF LDA ROUTINE ------------------------------------------
+
+Instruction 2: STA ADDR --> STORE THE ACCUMULATOR contents at ADDR in RAM
+1. Move Addr from PC to MAR --> T4 (EN_PC,LOAD_MAR)
+2. Select Addr from RAM and Move it to MDR and Count --> T5(EN_MAR,EN_RAM,LOAD_MDR,COUNT_PC)
+3. Move Data from MDR to Z Register High Byte --> T6(EN_MDR,EN_MDRH,LOAD2_Z)
+4. Move Addr from PC to MAR --> T7 (EN_PC,LOAD_MAR)
+5. Select Addr from RAM and Move it to MDR and Count --> T8(EN_MAR,EN_RAM,LOAD_MDR,COUNT_PC)
+6. Move Data from MDR to Z Register Low Byte --> T9(EN_MDR,LOAD1_Z)
+7. Move Data from Z Register to MAR --> T10(EN1_Z,EN2_Z,LOAD_MAR)
+8. Select ADDR in RAM and Put Accumulator Contents into it --> T11 (EN_MAR,EN_ACC,LOAD_RAM)
+------------------------------- END OF STA ROUTINE ------------------------------------------
+
+Instruction 3: MVI REG(A/B/C) DATA --> Move the DATA to the given REG(A/B/C)(It is a two byte instruction)
+1. Move Addr from PC to MAR --> T4 (EN_PC,LOAD_MAR)
+2. Move RAM data at Addr to MDR and Count --> T5(EN_MAR,EN_RAM,LOAD_MDR,COUNT_PC)
+3. Move data from MDR to REG(A/B/C) --> T6(EN_MDR,LOAD_ACC/B/C)
+------------------------------ END OF MVI ROUTINE --------------------------------------------
+
+Instruction 4: MOV REG1(A/B/C), REG(A/B/C) --> Move data from REG1 to REG2,(It is a one byte instruction)
+1. Move Data from REG1 to REG2 --> T4(EN_A/B/C, LOAD_ACC/B/C)
+------------------------------ END OF MOV ROUTINE ---------------------------------------------
+
+Instruction 5: ADD REG(B/C) --> Add the contents to the Accumulator to Register B and Register C(It is one byte instruction)
+1. Move Data from REG to Temporary register --> T4(EN_B/C, LOAD_TEMP)
+2. Do Arithmetic Addition and store in Accumulator --> T5(OP(001),LOAD_ACC,LOAD_FLAGS)
+------------------------------ END OF ADD ROUTINE ----------------------------------------------
+
+Instruction 6: SUB REG(B/C) --> Subtract the contents of Register B or Register C from Accumulator(It is one byte instruction)
+1. Move Data from REG to Temporary register --> T4(EN_B/C, LOAD_TEMP)
+2. Do Arithmetic Addition and store in Accumulator --> T5 (OP(0010),LOAD_ACC,LOAD_FLAGS)
+------------------------------ END OF ADD ROUTINE ----------------------------------------------
+
+Instruction 7: INR REG(A/B/C) --> Increment the REG(A/B/C) by 1
+1. Move Data from REG(A/B/C) to Temp Register --> T4(EN_ACC/B/C), LOAD_TEMP)
+2. Apply the INR Instruction to Temp --> T5(OP(1000),LOAD_ACC/B/C,LOAD_FLAGS)
+----------------------------- END OF INR ROUTINE -----------------------------------------------
+
+Instruction 8: DCR REG(A/B/C) --> Decrement the REG(A/B/C) by 1
+1. Move Data from REG(A/B/C) to Temp Register --> T4(EN_ACC/B/C), LOAD_TEMP)
+2. Apply the INR Instruction to Temp --> T5(OP(1001),LOAD_ACC/B/C,LOAD_FLAGS)
+----------------------------- END OF DCR ROUTINE -----------------------------------------------
+
+CREATING SUBROUTINES: JMP, JM, JNZ, JZ
+
+Instruction 9: JMP ADDR --> PC = Addr and program should execute from there
+1. Move PC into the MAR --> T4(EN_PC,LOAD_MAR)
+2. Move the RAM data into the MDR and Count --> T5(EN_MAR,EN_RAM,LOAD_MDR)
+3. Move Lower order byte from MDR to the Z Register --> T6(EN_MDR,EN_MDRL,LOAD2_Z)
+4. Move PC into the MAR --> T7(EN_PC,LOAD_MAR)
+5. Move thr RAM data into the MDR --> T8(EN_MAR,EN_RAM,LOAD_MDR)
+6. Move the Higher order byte from MDR to the Z register --> T9(EN_MDR,LOAD1_Z)
+7. Move the data from the Z register to the PC --> T10(EN_Z,LOAD_PC)
+----------------------------- END OF JMP ROUTINE -----------------------------
+Instruction 10: JM ADDR --> PC = Addr if and only if Signs flag is 1 (Determine as the address in the EEPROM)
+1. Move PC into the MAR --> T4(EN_PC,LOAD_MAR)
+2. Move the RAM data into the MDR and Count --> T5(EN_MAR,EN_RAM,LOAD_MDR)
+3. Move Higher order byte from MDR to the Z Register --> T6(EN_MDR,EN_MDRH,LOAD2_Z)
+4. Move PC into the MAR --> T7(EN_PC,LOAD_MAR)
+5. Move thr RAM data into the MDR --> T8(EN_MAR,EN_RAM,LOAD_MDR)
+6. Move the Lower order byte from MDR to the Z register --> T9(EN_MDR,LOAD1_Z)
+7. Move the data from the Z register to the PC --> T10(EN_Z,LOAD_PC)
+----------------------------- END OF JM ROUTINE -------------------------------
+NOTE:
+JM, JNZ and JZ are conditional commands so their Instruction decoded addresses take into account Sign and Zero Flags into account and generate the proper control word as per EEPROM.
+Other than that the JM, JNZ and JZ are just normal JMP command --> Refer the above two routines
+
+CALL and RET for SUBROUTINES (FUNCTIONALLY BUT NOT IN THE SAP 2 MODEL)
+
+CALL: Stores the current PC addr in the RAM and store the the topmost Addr(of the PC addr which is stored currently) in a register called the Stack Pointer so.
+Stack Pointer: A Register which stores the top most return Addr for the latest subroutine
+Stack: A specialized part of RAM which is a functional block used primarily for storing Addresses for the Latest Subroutines Return Address
+
+In my Logisim Project, I am implementing an Stack Register which will just store the RET addr, which means a restriction of only one subroutine within the main routine.
+
+NEW REGISTER CREATION: L REGISTER (In the Architecture World this is called a Link Register)
+Data Input: 16 bit addr
+
+Instruction 11: CALL Addr --> Saves the current program addr into the Link register then jumps to the specified addr
+1. Move PC into MAR --> T4 (EN_PC,LOAD_MAR)
+2. Move RAM data into MDR and count --> T5(EN_MAR,EN_RAM,LOAD_MDR,COUNT_PC)
+3. Move MDR high byte into the register Z high byte --> T6(EN_MDR,EN_MDRH,LOAD2_Z)
+4. Move PC into MAR --> T7 (EN_PC,LOAD_MAR)
+5. Move RAM data into MDR and count --> T8(EN_MAR,EN_RAM,LOAD_MDR,COUNT_PC)
+6. Move MDR low byte into the register Z low byte --> T9(EN_MDR,LOAD1_Z)
+7. Move the PC into the L Register --> T10(EN_PC,LOAD_L)
+8. Move the Z register contents into the PC --> T11(LOAD_PC,EN_Z)
+------------------------------ END OF CALL ROUTINE --------------------------------
+
+Instruction 12: RET --> Return to the main routine
+1. Move the data from the L Register into the PC --> T4(LOAD_PC,EN_L)
+------------------------------ END OF RET ROUTINE ---------------------------------
+
+RESTRICTIONS: A Maximum of one subroutine can be created so nesting of subroutines is not possible.
+
+
