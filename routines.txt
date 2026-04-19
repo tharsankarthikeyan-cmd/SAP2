@@ -49,32 +49,36 @@ Instruction 6: MOV A, B --> Move data from REG1 to REG2,(It is a one byte instru
 1. Move Data from REG1 to REG2 --> T4(EN_A, LOAD_B)
 ------------------------------ END OF MOV ROUTINE ---------------------------------------------
 
-Instruction 6: MOV A, C --> Move data from REG1 to REG2,(It is a one byte instruction)
+Instruction 7: MOV A, C --> Move data from REG1 to REG2,(It is a one byte instruction)
 1. Move Data from REG1 to REG2 --> T4(EN_A, LOAD_C)
 ------------------------------ END OF MOV ROUTINE ---------------------------------------------
 
-Instruction 6: MOV B, A --> Move data from REG1 to REG2,(It is a one byte instruction)
+Instruction 8: MOV B, A --> Move data from REG1 to REG2,(It is a one byte instruction)
 1. Move Data from REG1 to REG2 --> T4(EN_B, LOAD_A)
 ------------------------------ END OF MOV ROUTINE ---------------------------------------------
 
-Instruction 6: MOV B, C --> Move data from REG1 to REG2,(It is a one byte instruction)
+Instruction 9: MOV B, C --> Move data from REG1 to REG2,(It is a one byte instruction)
 1. Move Data from REG1 to REG2 --> T4(EN_B, LOAD_C)
 ------------------------------ END OF MOV ROUTINE ---------------------------------------------
 
-Instruction 6: MOV C, A --> Move data from REG1 to REG2,(It is a one byte instruction)
+Instruction 10: MOV C, A --> Move data from REG1 to REG2,(It is a one byte instruction)
 1. Move Data from REG1 to REG2 --> T4(EN_C, LOAD_A)
 ------------------------------ END OF MOV ROUTINE ---------------------------------------------
 
-Instruction 6: MOV C, B --> Move data from REG1 to REG2,(It is a one byte instruction)
+Instruction 11: MOV C, B --> Move data from REG1 to REG2,(It is a one byte instruction)
 1. Move Data from REG1 to REG2 --> T4(EN_C, LOAD_B)
 ------------------------------ END OF MOV ROUTINE ---------------------------------------------
 
 
-Instruction 5: ADD REG(B/C) --> Add the contents to the Accumulator to Register B and Register C(It is one byte instruction)
-1. Move Data from REG to Temporary register --> T4(EN_B/C, LOAD_TEMP)
-2. Do Arithmetic Addition and store in Accumulator --> T5(OP(001),LOAD_ACC,LOAD_FLAGS)
+Instruction 12: ADD B --> Add the contents to the Accumulator to Register B(It is one byte instruction)
+1. Move Data from REG to Temporary register --> T4(EN_B, LOAD_TEMP)
+2. Do Arithmetic Addition and store in Accumulator --> T5(OP(0001),LOAD_ACC,LOAD_FLAGS)
 ------------------------------ END OF ADD ROUTINE ----------------------------------------------
 
+Instruction 13: ADD C --> Add the contents to the Accumulator to Register C(It is one byte instruction)
+1. Move Data from REG to Temporary register --> T4(EN_C, LOAD_TEMP)
+2. Do Arithmetic Addition and store in Accumulator --> T5(OP(0001),LOAD_ACC,LOAD_FLAGS)
+------------------------------ END OF ADD ROUTINE ----------------------------------------------
 Instruction 6: SUB REG(B/C) --> Subtract the contents of Register B or Register C from Accumulator(It is one byte instruction)
 1. Move Data from REG to Temporary register --> T4(EN_B/C, LOAD_TEMP)
 2. Do Arithmetic Addition and store in Accumulator --> T5 (OP(0010),LOAD_ACC,LOAD_FLAGS)
