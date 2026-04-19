@@ -27,15 +27,48 @@ Instruction 2: STA ADDR --> STORE THE ACCUMULATOR contents at ADDR in RAM
 8. Select ADDR in RAM and Put Accumulator Contents into it --> T11 (EN_MAR,EN_ACC,LOAD_RAM)
 ------------------------------- END OF STA ROUTINE ------------------------------------------
 
-Instruction 3: MVI REG(A/B/C) DATA --> Move the DATA to the given REG(A/B/C)(It is a two byte instruction)
+Instruction 3: MVI A DATA --> Move the DATA to the given REG(A)(It is a two byte instruction)
 1. Move Addr from PC to MAR --> T4 (EN_PC,LOAD_MAR)
 2. Move RAM data at Addr to MDR and Count --> T5(EN_MAR,EN_RAM,LOAD_MDR,COUNT_PC)
-3. Move data from MDR to REG(A/B/C) --> T6(EN_MDR,LOAD_ACC/B/C)
+3. Move data from MDR to REG(A/B/C) --> T6(EN_MDR,LOAD_ACC)
+------------------------------ END OF MVI A ROUTINE --------------------------------------------
+
+Instruction 4: MVI B DATA --> Move the DATA to the given REG(B)(It is a two byte instruction)
+1. Move Addr from PC to MAR --> T4 (EN_PC,LOAD_MAR)
+2. Move RAM data at Addr to MDR and Count --> T5(EN_MAR,EN_RAM,LOAD_MDR,COUNT_PC)
+3. Move data from MDR to REG(A/B/C) --> T6(EN_MDR,LOAD_B)
 ------------------------------ END OF MVI ROUTINE --------------------------------------------
 
-Instruction 4: MOV REG1(A/B/C), REG(A/B/C) --> Move data from REG1 to REG2,(It is a one byte instruction)
-1. Move Data from REG1 to REG2 --> T4(EN_A/B/C, LOAD_ACC/B/C)
+Instruction 5: MVI C DATA --> Move the DATA to the given REG(C)(It is a two byte instruction)
+1. Move Addr from PC to MAR --> T4 (EN_PC,LOAD_MAR)
+2. Move RAM data at Addr to MDR and Count --> T5(EN_MAR,EN_RAM,LOAD_MDR,COUNT_PC)
+3. Move data from MDR to REG(A/B/C) --> T6(EN_MDR,LOAD_C)
+------------------------------ END OF MVI ROUTINE --------------------------------------------
+
+Instruction 6: MOV A, B --> Move data from REG1 to REG2,(It is a one byte instruction)
+1. Move Data from REG1 to REG2 --> T4(EN_A, LOAD_B)
 ------------------------------ END OF MOV ROUTINE ---------------------------------------------
+
+Instruction 6: MOV A, C --> Move data from REG1 to REG2,(It is a one byte instruction)
+1. Move Data from REG1 to REG2 --> T4(EN_A, LOAD_C)
+------------------------------ END OF MOV ROUTINE ---------------------------------------------
+
+Instruction 6: MOV B, A --> Move data from REG1 to REG2,(It is a one byte instruction)
+1. Move Data from REG1 to REG2 --> T4(EN_B, LOAD_A)
+------------------------------ END OF MOV ROUTINE ---------------------------------------------
+
+Instruction 6: MOV B, C --> Move data from REG1 to REG2,(It is a one byte instruction)
+1. Move Data from REG1 to REG2 --> T4(EN_B, LOAD_C)
+------------------------------ END OF MOV ROUTINE ---------------------------------------------
+
+Instruction 6: MOV C, A --> Move data from REG1 to REG2,(It is a one byte instruction)
+1. Move Data from REG1 to REG2 --> T4(EN_C, LOAD_A)
+------------------------------ END OF MOV ROUTINE ---------------------------------------------
+
+Instruction 6: MOV C, B --> Move data from REG1 to REG2,(It is a one byte instruction)
+1. Move Data from REG1 to REG2 --> T4(EN_C, LOAD_B)
+------------------------------ END OF MOV ROUTINE ---------------------------------------------
+
 
 Instruction 5: ADD REG(B/C) --> Add the contents to the Accumulator to Register B and Register C(It is one byte instruction)
 1. Move Data from REG to Temporary register --> T4(EN_B/C, LOAD_TEMP)
