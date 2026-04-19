@@ -8,7 +8,7 @@ flag = []
 for k in range(0, 8):
     flag.append(f"{k:01x}")
 
-f = open("rom.txt", "a")
+f = open("ihfidhg.txt", "a")
 for i in pos_opcode:
     for k in flag:
         for j in t_state:

@@ -19,7 +19,7 @@
       <a name="facing" val="west"/>
     </tool>
     <tool name="Power">
-      <a name="facing" val="west"/>
+      <a name="facing" val="south"/>
     </tool>
     <tool name="Ground">
       <a name="facing" val="north"/>
@@ -41,13 +41,13 @@
   <lib desc="#BFH-Praktika" name="10"/>
   <lib desc="#Input/Output-Extra" name="11"/>
   <lib desc="#Soc" name="12"/>
-  <lib desc="file#ring_counter.circ" name="13"/>
-  <lib desc="file#register_8bits.circ" name="14"/>
-  <lib desc="file#register_z.circ" name="15"/>
-  <lib desc="file#alu.circ" name="16"/>
+  <lib desc="file#register_z.circ" name="13"/>
+  <lib desc="file#flags_register.circ" name="14"/>
+  <lib desc="file#register_8bits.circ" name="15"/>
+  <lib desc="file#program_counter.circ" name="16"/>
   <lib desc="file#register_16bits.circ" name="17"/>
-  <lib desc="file#program_counter.circ" name="18"/>
-  <lib desc="file#flags_register.circ" name="19"/>
+  <lib desc="file#ring_counter.circ" name="18"/>
+  <lib desc="file#alu.circ" name="19"/>
   <main name="main"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
@@ -782,19 +782,19 @@
     <comp lib="1" loc="(3010,860)" name="NOR Gate">
       <a name="inputs" val="8"/>
     </comp>
-    <comp lib="13" loc="(2770,3030)" name="ring"/>
-    <comp lib="14" loc="(1390,1720)" name="register_8"/>
-    <comp lib="14" loc="(2430,1130)" name="register_8"/>
-    <comp lib="14" loc="(2430,130)" name="register_8"/>
-    <comp lib="14" loc="(2430,2010)" name="register_8"/>
-    <comp lib="14" loc="(2430,2500)" name="register_8"/>
-    <comp lib="14" loc="(2430,3040)" name="register_8"/>
-    <comp lib="15" loc="(1470,2150)" name="register_z16bits"/>
-    <comp lib="16" loc="(2830,750)" name="arithmetic_logic_unit"/>
+    <comp lib="13" loc="(1470,2150)" name="register_z16bits"/>
+    <comp lib="14" loc="(3370,750)" name="flags"/>
+    <comp lib="15" loc="(1390,1720)" name="register_8"/>
+    <comp lib="15" loc="(2430,1130)" name="register_8"/>
+    <comp lib="15" loc="(2430,130)" name="register_8"/>
+    <comp lib="15" loc="(2430,2010)" name="register_8"/>
+    <comp lib="15" loc="(2430,2500)" name="register_8"/>
+    <comp lib="15" loc="(2430,3040)" name="register_8"/>
+    <comp lib="16" loc="(1380,340)" name="pc"/>
     <comp lib="17" loc="(1370,590)" name="register_16"/>
     <comp lib="17" loc="(1470,2900)" name="register_16"/>
-    <comp lib="18" loc="(1380,340)" name="pc"/>
-    <comp lib="19" loc="(3370,750)" name="flags"/>
+    <comp lib="18" loc="(2770,3030)" name="ring"/>
+    <comp lib="19" loc="(2830,750)" name="arithmetic_logic_unit"/>
     <comp lib="2" loc="(1490,1800)" name="Demultiplexer">
       <a name="tristate" val="true"/>
       <a name="width" val="8"/>
@@ -954,14 +954,17 @@
 8*d4 8*0 8*10000100 216*0 8*9 8*0 8*d4 8*0
 8*10000100 216*0 8*9 8*0 8*d4 8*0 8*10000100 216*0
 8*9 8*0 8*d4 8*0 8*10000100 216*0 8*9 8*0
+8*d4 8*0 8*10000100 8*0 8*2020000 8*0 8*a88000 8*0
+8*40000000 168*0 8*9 8*0 8*d4 8*0 8*10000100 8*0
+8*8020000 8*0 8*a88000 8*0 8*40000000 168*0 8*9 8*0
 8*d4 8*0 8*10000100 216*0 8*9 8*0 8*d4 8*0
 8*10000100 216*0 8*9 8*0 8*d4 8*0 8*10000100 216*0
 8*9 8*0 8*d4 8*0 8*10000100 216*0 8*9 8*0
 8*d4 8*0 8*10000100 216*0 8*9 8*0 8*d4 8*0
-8*10000100 216*0 8*9 8*0 8*d4 8*0 8*10000100 216*0
-8*9 8*0 8*d4 8*0 8*10000100 216*0 8*9 8*0
-8*d4 8*0 8*10000100 216*0 8*9 8*0 8*d4 8*0
-8*10000100 216*0 8*9 8*0 8*d4 8*0 8*10000100 216*0
+8*10000100 216*0 8*9 8*0 8*d4 8*0 8*10000100 8*0
+8*2020000 8*0 8*a08000 8*0 8*40000000 168*0 8*9 8*0
+8*d4 8*0 8*10000100 8*0 8*8020000 8*0 8*a08000 8*0
+8*40000000 168*0 8*9 8*0 8*d4 8*0 8*10000100 216*0
 8*9 8*0 8*d4 8*0 8*10000100 216*0 8*9 8*0
 8*d4 8*0 8*10000100 216*0 8*9 8*0 8*d4 8*0
 8*10000100 216*0 8*9 8*0 8*d4 8*0 8*10000100 216*0

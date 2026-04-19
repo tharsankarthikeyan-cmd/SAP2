@@ -174,14 +174,24 @@ Instruction 13: ANA C --> And the Accumulator with C
 
 
 
-Instruction 14: ORA REG(B/C) --> OR the Accumulator with REG(B/C)
-1. Move the Data in REG(B/C) into tmp register (EN_B/C,LOAD_TEMP)
+Instruction 14: ORA REG(B) --> OR the Accumulator with REG(B)
+1. Move the Data in REG(B) into tmp register (EN_B,LOAD_TEMP)
+2. Choose the opcode for the instruction and store in the output in the accumulator (OPCODE(0100),LOAD_ACC)
+------------------------------ END OF ORA ROUTINE ---------------------------------
+
+Instruction 14: ORA REG(C) --> OR the Accumulator with REG(C)
+1. Move the Data in REG(C) into tmp register (EN_C,LOAD_TEMP)
 2. Choose the opcode for the instruction and store in the output in the accumulator (OPCODE(0100),LOAD_ACC)
 ------------------------------ END OF ORA ROUTINE ---------------------------------
 
 
-Instruction 15: XRA REG(B/C) --> XOR the Accumulator with REG(B/C)
-1. Move the Data in REG(B/C) into tmp register (EN_B/C,LOAD_TEMP)
+Instruction 15: XRA REG(B) --> XOR the Accumulator with REG(B)
+1. Move the Data in REG(B) into tmp register (EN_B,LOAD_TEMP)
+2. Choose the opcode for the instruction and store in the output in the accumulator (OPCODE(0101),LOAD_ACC)
+------------------------------ END OF XRA ROUTINE ---------------------------------
+
+Instruction 15: XRA REG(C) --> XOR the Accumulator with REG(C)
+1. Move the Data in REG(C) into tmp register (EN_C,LOAD_TEMP)
 2. Choose the opcode for the instruction and store in the output in the accumulator (OPCODE(0101),LOAD_ACC)
 ------------------------------ END OF XRA ROUTINE ---------------------------------
 
