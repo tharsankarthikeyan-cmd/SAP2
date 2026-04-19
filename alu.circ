@@ -147,6 +147,15 @@
     <comp lib="0" loc="(1910,560)" name="Ground">
       <a name="facing" val="west"/>
     </comp>
+    <comp lib="0" loc="(1930,1000)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1930,1010)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1930,1020)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
     <comp lib="0" loc="(1930,860)" name="Ground">
       <a name="facing" val="west"/>
     </comp>
@@ -160,6 +169,24 @@
       <a name="facing" val="west"/>
     </comp>
     <comp lib="0" loc="(1930,910)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1930,940)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1930,950)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1930,960)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1930,970)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1930,980)" name="Ground">
+      <a name="facing" val="west"/>
+    </comp>
+    <comp lib="0" loc="(1930,990)" name="Ground">
       <a name="facing" val="west"/>
     </comp>
     <comp lib="0" loc="(1990,690)" name="Pin">
@@ -414,11 +441,20 @@
     <wire from="(1910,540)" to="(1950,540)"/>
     <wire from="(1910,550)" to="(1950,550)"/>
     <wire from="(1910,560)" to="(1950,560)"/>
+    <wire from="(1930,1000)" to="(2020,1000)"/>
+    <wire from="(1930,1010)" to="(2020,1010)"/>
+    <wire from="(1930,1020)" to="(2020,1020)"/>
     <wire from="(1930,860)" to="(2020,860)"/>
     <wire from="(1930,880)" to="(2020,880)"/>
     <wire from="(1930,890)" to="(2020,890)"/>
     <wire from="(1930,900)" to="(2020,900)"/>
     <wire from="(1930,910)" to="(2020,910)"/>
+    <wire from="(1930,940)" to="(2020,940)"/>
+    <wire from="(1930,950)" to="(2020,950)"/>
+    <wire from="(1930,960)" to="(2020,960)"/>
+    <wire from="(1930,970)" to="(2020,970)"/>
+    <wire from="(1930,980)" to="(2020,980)"/>
+    <wire from="(1930,990)" to="(2020,990)"/>
     <wire from="(1970,560)" to="(1970,570)"/>
     <wire from="(1970,570)" to="(2150,570)"/>
     <wire from="(1970,770)" to="(1970,780)"/>

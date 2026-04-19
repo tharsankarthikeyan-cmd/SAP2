@@ -79,15 +79,31 @@ Instruction 13: ADD C --> Add the contents to the Accumulator to Register C(It i
 1. Move Data from REG to Temporary register --> T4(EN_C, LOAD_TEMP)
 2. Do Arithmetic Addition and store in Accumulator --> T5(OP(0001),LOAD_ACC,LOAD_FLAGS)
 ------------------------------ END OF ADD ROUTINE ----------------------------------------------
-Instruction 6: SUB REG(B/C) --> Subtract the contents of Register B or Register C from Accumulator(It is one byte instruction)
-1. Move Data from REG to Temporary register --> T4(EN_B/C, LOAD_TEMP)
+Instruction 6: SUB B --> Subtract the contents Register B from Accumulator(It is one byte instruction)
+1. Move Data from REG to Temporary register --> T4(EN_B, LOAD_TEMP)
 2. Do Arithmetic Addition and store in Accumulator --> T5 (OP(0010),LOAD_ACC,LOAD_FLAGS)
 ------------------------------ END OF ADD ROUTINE ----------------------------------------------
 
-Instruction 7: INR REG(A/B/C) --> Increment the REG(A/B/C) by 1
-1. Move Data from REG(A/B/C) to Temp Register --> T4(EN_ACC/B/C), LOAD_TEMP)
-2. Apply the INR Instruction to Temp --> T5(OP(1000),LOAD_ACC/B/C,LOAD_FLAGS)
+Instruction 6: SUB C --> Subtract the contents Register C from Accumulator(It is one byte instruction)
+1. Move Data from REG to Temporary register --> T4(EN_C, LOAD_TEMP)
+2. Do Arithmetic Addition and store in Accumulator --> T5 (OP(0010),LOAD_ACC,LOAD_FLAGS)
+------------------------------ END OF ADD ROUTINE ----------------------------------------------
+Instruction 7: INR REG(A) --> Increment the REG(A) by 1
+1. Move Data from REG(A) to Temp Register --> T4(EN_ACC), LOAD_TEMP)
+2. Apply the INR Instruction to Temp --> T5(OP(1000),LOAD_ACC,LOAD_FLAGS)
 ----------------------------- END OF INR ROUTINE -----------------------------------------------
+
+Instruction 7: INR REG(B) --> Increment the REG(B) by 1
+1. Move Data from REG(B) to Temp Register --> T4(EN_B), LOAD_TEMP)
+2. Apply the INR Instruction to Temp --> T5(OP(1000),LOAD_B,LOAD_FLAGS)
+----------------------------- END OF INR ROUTINE -----------------------------------------------
+
+
+Instruction 7: INR REG(C) --> Increment the REG(C) by 1
+1. Move Data from REG(C) to Temp Register --> T4(EN_C), LOAD_TEMP)
+2. Apply the INR Instruction to Temp --> T5(OP(1000),LOAD_C,LOAD_FLAGS)
+----------------------------- END OF INR ROUTINE -----------------------------------------------
+
 
 Instruction 8: DCR REG(A/B/C) --> Decrement the REG(A/B/C) by 1
 1. Move Data from REG(A/B/C) to Temp Register --> T4(EN_ACC/B/C), LOAD_TEMP)
@@ -146,10 +162,17 @@ Instruction 12: RET --> Return to the main routine
 
 RESTRICTIONS: A Maximum of one subroutine can be created so nesting of subroutines is not possible.
 
-Instruction 13: ANA REG(B/C) --> And the Accumulator with REG(B/C)
-1. Move the Data in REG(B/C) into tmp register (EN_B/C,LOAD_TEMP)
+Instruction 13: ANA B --> And the Accumulator with B
+1. Move the Data in REG(B) into tmp register (EN_B,LOAD_TEMP)
 2. Choose the opcode for the instruction and store in the output in the accumulator (OPCODE(0011),LOAD_ACC)
 ------------------------------ END OF ANA ROUTINE ---------------------------------
+
+Instruction 13: ANA C --> And the Accumulator with C
+1. Move the Data in REG(C) into tmp register (EN_C,LOAD_TEMP)
+2. Choose the opcode for the instruction and store in the output in the accumulator (OPCODE(0011),LOAD_ACC)
+------------------------------ END OF ANA ROUTINE ---------------------------------
+
+
 
 Instruction 14: ORA REG(B/C) --> OR the Accumulator with REG(B/C)
 1. Move the Data in REG(B/C) into tmp register (EN_B/C,LOAD_TEMP)
