@@ -69,7 +69,6 @@ Instruction 11: MOV C, B --> Move data from REG1 to REG2,(It is a one byte instr
 1. Move Data from REG1 to REG2 --> T4(EN_C, LOAD_B)
 ------------------------------ END OF MOV ROUTINE ---------------------------------------------
 
-
 Instruction 12: ADD B --> Add the contents to the Accumulator to Register B(It is one byte instruction)
 1. Move Data from REG to Temporary register --> T4(EN_B, LOAD_TEMP)
 2. Do Arithmetic Addition and store in Accumulator --> T5(OP(0001),LOAD_ACC,LOAD_FLAGS)
@@ -79,33 +78,35 @@ Instruction 13: ADD C --> Add the contents to the Accumulator to Register C(It i
 1. Move Data from REG to Temporary register --> T4(EN_C, LOAD_TEMP)
 2. Do Arithmetic Addition and store in Accumulator --> T5(OP(0001),LOAD_ACC,LOAD_FLAGS)
 ------------------------------ END OF ADD ROUTINE ----------------------------------------------
-Instruction 6: SUB B --> Subtract the contents Register B from Accumulator(It is one byte instruction)
+
+Instruction 14: SUB B --> Subtract the contents Register B from Accumulator(It is one byte instruction)
 1. Move Data from REG to Temporary register --> T4(EN_B, LOAD_TEMP)
 2. Do Arithmetic Addition and store in Accumulator --> T5 (OP(0010),LOAD_ACC,LOAD_FLAGS)
 ------------------------------ END OF ADD ROUTINE ----------------------------------------------
 
-Instruction 6: SUB C --> Subtract the contents Register C from Accumulator(It is one byte instruction)
+Instruction 15: SUB C --> Subtract the contents Register C from Accumulator(It is one byte instruction)
 1. Move Data from REG to Temporary register --> T4(EN_C, LOAD_TEMP)
 2. Do Arithmetic Addition and store in Accumulator --> T5 (OP(0010),LOAD_ACC,LOAD_FLAGS)
 ------------------------------ END OF ADD ROUTINE ----------------------------------------------
-Instruction 7: INR REG(A) --> Increment the REG(A) by 1
+
+Instruction 16: INR REG(A) --> Increment the REG(A) by 1
 1. Move Data from REG(A) to Temp Register --> T4(EN_ACC), LOAD_TEMP)
 2. Apply the INR Instruction to Temp --> T5(OP(1000),LOAD_ACC,LOAD_FLAGS)
 ----------------------------- END OF INR ROUTINE -----------------------------------------------
 
-Instruction 7: INR REG(B) --> Increment the REG(B) by 1
+Instruction 17: INR REG(B) --> Increment the REG(B) by 1
 1. Move Data from REG(B) to Temp Register --> T4(EN_B), LOAD_TEMP)
 2. Apply the INR Instruction to Temp --> T5(OP(1000),LOAD_B,LOAD_FLAGS)
 ----------------------------- END OF INR ROUTINE -----------------------------------------------
 
 
-Instruction 7: INR REG(C) --> Increment the REG(C) by 1
+Instruction 18: INR REG(C) --> Increment the REG(C) by 1
 1. Move Data from REG(C) to Temp Register --> T4(EN_C), LOAD_TEMP)
 2. Apply the INR Instruction to Temp --> T5(OP(1000),LOAD_C,LOAD_FLAGS)
 ----------------------------- END OF INR ROUTINE -----------------------------------------------
 
 
-Instruction 8: DCR REG(A/B/C) --> Decrement the REG(A/B/C) by 1
+Instruction 19,20,21: DCR REG(A/B/C) --> Decrement the REG(A/B/C) by 1
 1. Move Data from REG(A/B/C) to Temp Register --> T4(EN_ACC/B/C), LOAD_TEMP)
 2. Apply the INR Instruction to Temp --> T5(OP(1001),LOAD_ACC/B/C,LOAD_FLAGS)
 ----------------------------- END OF DCR ROUTINE -----------------------------------------------
@@ -172,8 +173,6 @@ Instruction 13: ANA C --> And the Accumulator with C
 2. Choose the opcode for the instruction and store in the output in the accumulator (OPCODE(0011),LOAD_ACC)
 ------------------------------ END OF ANA ROUTINE ---------------------------------
 
-
-
 Instruction 14: ORA REG(B) --> OR the Accumulator with REG(B)
 1. Move the Data in REG(B) into tmp register (EN_B,LOAD_TEMP)
 2. Choose the opcode for the instruction and store in the output in the accumulator (OPCODE(0100),LOAD_ACC)
@@ -183,7 +182,6 @@ Instruction 14: ORA REG(C) --> OR the Accumulator with REG(C)
 1. Move the Data in REG(C) into tmp register (EN_C,LOAD_TEMP)
 2. Choose the opcode for the instruction and store in the output in the accumulator (OPCODE(0100),LOAD_ACC)
 ------------------------------ END OF ORA ROUTINE ---------------------------------
-
 
 Instruction 15: XRA REG(B) --> XOR the Accumulator with REG(B)
 1. Move the Data in REG(B) into tmp register (EN_B,LOAD_TEMP)
@@ -195,27 +193,38 @@ Instruction 15: XRA REG(C) --> XOR the Accumulator with REG(C)
 2. Choose the opcode for the instruction and store in the output in the accumulator (OPCODE(0101),LOAD_ACC)
 ------------------------------ END OF XRA ROUTINE ---------------------------------
 
-Instruction 16: RAL REG(A/B/C) --> RAL the REG(B/C)
-1. Move the Data in REG(B/C) into tmp register (EN_B/C,LOAD_TEMP)
-2. Choose the opcode for the instruction and store in the output in the accumulator (OPCODE(0110),LOAD_B/C)
+Instruction 16: RAL --> RAL the Accumulator
+1. Move the Data in Accumualator into tmp register (EN_ACC,LOAD_TEMP)
+2. Choose the opcode for the instruction and store in the output in the accumulator (OPCODE(0110),LOAD_ACC)
 ------------------------------ END OF RAL ROUTINE ---------------------------------
 
-Instruction 17: RAR REG(A/B/C) --> RAR the REG(B/C)
-1. Move the Data in REG(B/C) into tmp register (EN_B/C,LOAD_TEMP)
-2. Choose the opcode for the instruction and store in the output in the accumulator (OPCODE(0111),LOAD_B/C)
+Instruction 17: RAR  --> RAR the Accumualtor
+1. Move the Data in Accumulator into tmp register (EN_ACC,LOAD_TEMP)
+2. Choose the opcode for the instruction and store in the output in the accumulator (OPCODE(0111),LOAD_ACC)
 ------------------------------ END OF RAR ROUTINE ---------------------------------
 
 Instruction 18: CMA --> ~ACC
 1. Choose the opcode for the instruction and store in the output in the accumulator (OPCODE(1010),LOAD_ACC)
 ------------------------------ END OF CMA ROUTINE ---------------------------------
 
-Instruction 19: INR REG(A/B/C) --> Increment REG(B/C)
-1. Move the Data in REG(B/C) into tmp register (EN_ACC/B/C,LOAD_TEMP)
-2. Choose the opcode for the instruction and store in the output in the accumulator (OPCODE(1000),LOAD_ACC/B/C)
------------------------------- END OF INR ROUTINE ---------------------------------
+Instruction 19: ANI data --> And the accumulator immediately with data
+1. Move the PC to the MAR --> T4(EN_PC,LOAD_MAR)
+2. Move the RAM data to MDR --> T5(EN_MAR,EN_RAM,LOAD_MDR,COUNT_PC)
+3. Move the Data from the MDR to tmp --> T6(EN_MDR,LOAD_TEMP)
+4. Perform the calc and store in accumualator --> T7(OPCODE(0011),LOAD_ACC)
+----------------------------- END OF ANI ROUTINE ----------------------------------
 
-Instruction 20: DCR REG(B/C) --> Decrement REG(B/C)
-1. Move the Data in REG(B/C) into tmp register (EN_B/C,LOAD_TEMP)
-2. Choose the opcode for the instruction and store in the output in the accumulator (OPCODE(1001),LOAD_B/C)
------------------------------- END OF DCR ROUTINE ---------------------------------
+Instruction 20: ORI data --> OR the accumulator immediately with data
+1. Move the PC to the MAR --> T4(EN_PC,LOAD_MAR)
+2. Move the RAM data to MDR --> T5(EN_MAR,EN_RAM,LOAD_MDR,COUNT_PC)
+3. Move the Data from the MDR to tmp --> T6(EN_MDR,LOAD_TEMP)
+4. Perform the calc and store in accumualator --> T7(OPCODE(0100),LOAD_ACC)
+----------------------------- END OF ORI ROUTINE ----------------------------------
+
+Instruction 21: XRI data --> XOR the accumulator immediately with data
+1. Move the PC to the MAR --> T4(EN_PC,LOAD_MAR)
+2. Move the RAM data to MDR --> T5(EN_MAR,EN_RAM,LOAD_MDR,COUNT_PC)
+3. Move the Data from the MDR to tmp --> T6(EN_MDR,LOAD_TEMP)
+4. Perform the calc and store in accumualator --> T7(OPCODE(0101),LOAD_ACC)
+----------------------------- END OF ORI ROUTINE ----------------------------------
 
