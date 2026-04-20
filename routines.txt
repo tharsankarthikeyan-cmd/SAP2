@@ -116,12 +116,17 @@ CREATING SUBROUTINES: JMP, JM, JNZ, JZ
 Instruction 9: JMP ADDR --> PC = Addr and program should execute from there
 1. Move PC into the MAR --> T4(EN_PC,LOAD_MAR)
 2. Move the RAM data into the MDR and Count --> T5(EN_MAR,EN_RAM,LOAD_MDR)
-3. Move Lower order byte from MDR to the Z Register --> T6(EN_MDR,EN_MDRL,LOAD2_Z)
+3. Move Higher order byte from MDR to the Z Register --> T6(EN_MDR,EN_MDRH,LOAD2_Z)
 4. Move PC into the MAR --> T7(EN_PC,LOAD_MAR)
 5. Move thr RAM data into the MDR --> T8(EN_MAR,EN_RAM,LOAD_MDR)
-6. Move the Higher order byte from MDR to the Z register --> T9(EN_MDR,LOAD1_Z)
+6. Move the Lower order byte from MDR to the Z register --> T9(EN_MDR,LOAD1_Z)
 7. Move the data from the Z register to the PC --> T10(EN_Z,LOAD_PC)
 ----------------------------- END OF JMP ROUTINE -----------------------------
+IF CONDITION NOT MET ROUTINE
+1. Increment the PC --> T4(COUNT_PC)
+2. Increment the PC --> T5(COUNT_PC)
+3. T_RESET --> T6(T_RESET)
+
 Instruction 10: JM ADDR --> PC = Addr if and only if Signs flag is 1 (Determine as the address in the EEPROM)
 1. Move PC into the MAR --> T4(EN_PC,LOAD_MAR)
 2. Move the RAM data into the MDR and Count --> T5(EN_MAR,EN_RAM,LOAD_MDR)
@@ -131,12 +136,20 @@ Instruction 10: JM ADDR --> PC = Addr if and only if Signs flag is 1 (Determine 
 6. Move the Lower order byte from MDR to the Z register --> T9(EN_MDR,LOAD1_Z)
 7. Move the data from the Z register to the PC --> T10(EN_Z,LOAD_PC)
 ----------------------------- END OF JM ROUTINE -------------------------------
+IF CONDITION NOT MET ROUTINE
+1. Increment the PC --> T4(COUNT_PC)
+2. Increment the PC --> T5(COUNT_PC)
+3. T_RESET --> T6(T_RESET)
+
+
 NOTE:
 JM, JNZ and JZ are conditional commands so their Instruction decoded addresses take into account Sign and Zero Flags into account and generate the proper control word as per EEPROM.
 Other than that the JM, JNZ and JZ are just normal JMP command --> Refer the above two routines
 
-CALL and RET for SUBROUTINES (FUNCTIONALLY BUT NOT IN THE SAP 2 MODEL)
 
+
+CALL and RET for SUBROUTINES (FUNCTIONALLY BUT NOT IN THE SAP 2 MODEL)
+------------------------------------------------------------------------
 CALL: Stores the current PC addr in the RAM and store the the topmost Addr(of the PC addr which is stored currently) in a register called the Stack Pointer so.
 Stack Pointer: A Register which stores the top most return Addr for the latest subroutine
 Stack: A specialized part of RAM which is a functional block used primarily for storing Addresses for the Latest Subroutines Return Address
