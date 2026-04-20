@@ -46,6 +46,9 @@ Each operation has their repective opcode which is to be given at the OP input o
 ### EEPROM
 EEPROM is used to generate 32 bit control words for the instructions and fetch cycle
 
+### MORE INFO:
+For more information do checkout the routines.txt and rom.txt
+
 ## SCREENSHOTS
 ![Alt text](Images/FULL.png)
 ![Alt text](Images/ALU.png)
