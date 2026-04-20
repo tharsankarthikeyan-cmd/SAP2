@@ -48,3 +48,11 @@ EEPROM is used to generate 32 bit control words for the instructions and fetch c
 
 ## SCREENSHOTS
 ![Alt text](Images/FULL.png)
+![Alt text](Images/ALU.png)
+![Alt text](Images/REG.png)
+![Alt text](Images/PC_MAR.png)
+![Alt text](Images/RAM_MDR.png)
+![Alt text](Images/Z_L.png)
+![Alt text](Images/CON_WORD.png)
+
+
